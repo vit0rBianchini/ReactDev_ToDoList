@@ -17,12 +17,13 @@ function Filtro(props) {
     const listaCategoriasTotais = []
     return (
         <select className='entradaDados_select' valorfiltro={props.valorFiltro} onChange={props.setValorFiltro}>
-            <option key={'vazio'} value={''}>{'Sem categoria'}</option>
-            {props.categorias.map((e, i) => {
-                console.log(listaCategoriasTotais.indexOf(e.categoria) === -1)
+            <option key={'todosOsItens'} value={'*'}>Todas Categorias</option>
+            {props.categorias.map((e) => {
                 if(listaCategoriasTotais.indexOf(e.categoria) === -1){
                     listaCategoriasTotais.push(e.categoria)
-                    console.log(listaCategoriasTotais)
+                    if(e.categoria === ''){
+                        return <option key={e.categoria} value={e.categoria}>{'Sem categoria'}</option>
+                    }
                     return <option key={e.categoria} value={e.categoria}>{e.categoria}</option>
                 }else{
                     return null
@@ -34,7 +35,7 @@ function Filtro(props) {
 
 //Componete | pai
 function QuadroDeRecados(props) {
-    const [valorFiltro, setValorFiltro] = useState('');
+    const [valorFiltro, setValorFiltro] = useState('*');
 
     function handleValorFiltro(e){
         setValorFiltro(e.target.value)
@@ -42,9 +43,21 @@ function QuadroDeRecados(props) {
 
     function deletar(e){
         props.deletarItemLista(e)
+        let contador = 0
+        props.elemento.map(el => {
+            
+            if(el.categoria === valorFiltro){
+                contador++
+            }
+            return null
+        })
+        if(contador === 1){
+            setValorFiltro('*')
+        }
     }
 
     if (props.elemento.length === 0) {
+        
         return (
             <div className='quadroRecados'>
                 <div className='quadro quadroVazio'>
@@ -52,7 +65,9 @@ function QuadroDeRecados(props) {
                 </div>
             </div>
         )
-    } else if (valorFiltro === '') {
+    } else if (valorFiltro === '*') {
+        
+        
         return (
             <div className='quadroRecados'>
                 <Filtro categorias={props.elemento} valorFiltro={valorFiltro} setValorFiltro={handleValorFiltro} />
@@ -64,6 +79,7 @@ function QuadroDeRecados(props) {
             </div>
         )
     } else {
+        
         return (
             <div className='quadroRecados'>
                 <Filtro categorias={props.elemento} valorFiltro={valorFiltro} setValorFiltro={handleValorFiltro} />

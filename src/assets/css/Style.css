@@ -1,0 +1,221 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .entradaDados{
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+  }
+  .entradaDados_orientacoes{
+    margin: 20px;
+  }
+  
+  input, textarea, select, button{
+    background-color: #EDF3FD;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 0px #000000;
+    border-radius: 2px;
+  
+    margin-bottom: 10px;
+    outline: none;
+  }
+  
+  input, textarea, select{
+    padding-left: 15px;
+  
+  }
+  
+  input, select{
+    height: 30px;
+  }
+  
+  textarea{
+    width: 100%;
+  }
+  
+  .entradaDados_titulo{
+    width: 90%;
+  }
+  
+  .entradaDados_categoria{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+  }
+  
+  .entradaDados_categoriaNova{
+    width: 57%;
+  }
+  
+  .entradaDados_select{
+    width: 40%;
+    /* appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url(assets/img/down-filled-triangular-arrow.png) no-repeat center right; */
+    background-size: 12px;
+    background-position-x: calc(100% - 10px);
+    background-color: #EDF3FD;
+  }
+  
+  .entradaDados_TextArea{
+    width: 90%;
+  }
+  
+  .textArea_contador{
+    position: relative;
+    width: 100px;
+    margin: 0;
+    left: calc(100% - 100px);
+    font-size: 12px;
+    text-align: right;
+  }
+  
+  .red{
+    color: red;
+  }
+  
+  .btn_enviar{
+    width: 100px;
+    height: 40px;
+    text-transform: uppercase;
+  }
+  
+  .quadro , .quadroRecados{
+    padding-top: 20px;
+    margin-top: 20px;
+    padding: 20px;
+    padding-right: 10px;
+  
+  }
+  
+  .quadroRecados{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .quadro{
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  
+  .quadroVazio{
+    width: 80vw;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .card{
+    min-width: 200px;
+    max-width: 360px;
+    min-height: 150px;
+    background: #EDF3FD;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 0px #000000;
+    border-radius: 2px;
+    margin: 5px;
+    padding: 10px;
+  }
+  .card_titulo{
+    font-size: 18px;
+  
+  }
+  .card_conteudo{
+    font-size: 16px;
+    
+  }
+  .card_categoria{
+    margin-top: 5px;
+    background-color: white;
+    width: min-content;
+    padding: 3px 7px 3px 7px;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-size: 12px;
+  }
+  
+  .card_botao{
+    background-color: white;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+  }
+  
+  .card_botao:hover{
+    box-shadow: none;
+    background-color: #f8f8f8;
+  }
+
+  .todas-categorias{
+    display: flex;
+    flex-wrap: wrap;
+    width: 85vw;
+    margin-bottom: 10px;
+
+  }
+
+  .card-categoria{
+    display: flex;
+    align-items: center;
+    box-shadow: 3px 3px 0px #000000;
+    background-color: #EDF3FD;
+    margin: 0 8px 8px 0 ;
+    border: 1px solid black;
+    border-radius: 2px;
+  }
+
+  .card-categoria_categoria{
+    margin: 0;
+    padding: 5px 6px;
+  }
+
+  .card-categoria_botao{
+    box-shadow: none;
+    border: none;
+    width: 25px;
+    height: 25px;
+    padding: 0 8px 0 8px;
+    margin: 0;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .main{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      height: 100vh;
+    }
+  
+    .entradaDados, .quadroRecados{
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+    .entradaDados{
+      width: 55vw;
+      border-right: 1px solid black ;
+      border-bottom: none;
+    }
+    .quadro{
+      overflow-y: scroll;
+      width: 45vw;
+      height: 60vh;
+    }
+
+    .todas-categorias{
+      width: 90%;
+  
+    }
+  }

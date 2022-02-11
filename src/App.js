@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import './App.css';
+import '../src/assets/css/Style.css';
 import EntradaDeDados from './components/EntradaDeDados/EntradaDeDados';
 import QuadroDeRecados from './components/QuadroDeRecados/QuadroDeRecados';
 
@@ -20,6 +20,20 @@ function App() {
         
     }
 
+    function deletaCategoria(el){
+        const novaLista = []
+        listaCategoria.map(e => {
+            if(e === null){ return null }
+            if(e.key !== el.target.value){
+                novaLista.push(e)
+                return null
+            }
+
+            return null
+        })
+        setListaCategoria(novaLista)
+    }
+
     function valorTextAreaChange(e){
         if (e.target.value.length <= 150) {
             return setValorTextArea(e.target.value)
@@ -32,15 +46,15 @@ function App() {
         let categoria = <option key={e.target.value} value={e.target.value}>{e.target.value}</option>
         listaCategoria.map(el => {
             if(el === null){
-                return
+                return null
             } else if(listaCategoria.length === 0){
                 categoria = <option key={e.target.value} value={e.target.value}>{e.target.value}</option>
             } else if( el.key === e.target.value){
                 categoria = null
             } else {
                 categoria = <option key={e.target.value} value={e.target.value}>{e.target.value}</option>
-
             }
+            return null
         })
 
             
@@ -80,6 +94,8 @@ function App() {
 
                 listaCategoria={listaCategoria}
                 setListaCategoria={listaCategoriaChange}
+
+                deletaCategoria={deletaCategoria}
             />
             <QuadroDeRecados
                 deletarItemLista={deletarItemLista}
